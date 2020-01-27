@@ -1,18 +1,27 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="recorder">
+      <Recorder />
+    </div>
+    <div>
+      <Recorder />
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Recorder from "@/components/Recorder.vue";
 
 export default {
-  name: 'home',
   components: {
-    HelloWorld
+    Recorder
   }
-}
+};
 </script>
+
+<style lang="stylus" scoped>
+.recorder {
+  margin: 20px auto;
+}
+</style>

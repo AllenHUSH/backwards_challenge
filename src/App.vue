@@ -1,19 +1,42 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div>
+    <mu-appbar title="倒放挑战">
+      <mu-menu slot="right">
+        <mu-button flat>
+          <mu-icon value="menu"></mu-icon>
+        </mu-button>
+        <mu-list slot="content">
+          <mu-list-item button  @click="$router.push('/home')">
+            <mu-list-item-content>
+              <mu-list-item-title>倒放挑战</mu-list-item-title>
+            </mu-list-item-content>
+          </mu-list-item>
+
+          <mu-list-item button @click="$router.push('/how')">
+            <mu-list-item-content>
+              <mu-list-item-title >游戏规则</mu-list-item-title>
+            </mu-list-item-content>
+          </mu-list-item>
+          <mu-list-item button  @click="$router.push('/about')">
+            <mu-list-item-content>
+              <mu-list-item-title>关于游戏</mu-list-item-title>
+            </mu-list-item-content>
+          </mu-list-item>
+        </mu-list>
+      </mu-menu>
+    </mu-appbar>
+    <mu-container>
+      <router-view></router-view>
+    </mu-container>
   </div>
 </template>
-
-<style lang="stylus">
-#app
-  font-family 'Avenir', Helvetica, Arial, sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-  text-align center
-  color #2c3e50
-  margin-top 60px
+<style lang="stylus" scoped>
+.bottom-nav {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: 1000;
+}
 </style>
+
