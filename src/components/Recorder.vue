@@ -70,7 +70,8 @@ export default {
 
       navigator.mediaDevices
         .getUserMedia({
-          audio: true
+          audio: true,
+          video: false
         })
         .then(stream => {
           this.audioInput = this.context.createMediaStreamSource(stream);
