@@ -4,17 +4,29 @@
       <mu-row>
         <mu-col span="12">
           <div class="grid-cell grid-title">
-            <h1>{{formatDuring(time)}}</h1>
+            <h1>{{ formatDuring(time) }}</h1>
           </div>
         </mu-col>
       </mu-row>
       <mu-row>
         <mu-col span="6">
           <div class="grid-cell grid-button">
-            <mu-button color="primary" large @click="recorderStart" fab v-show="!isRecording">
+            <mu-button
+              color="primary"
+              large
+              @click="recorderStart"
+              fab
+              v-show="!isRecording"
+            >
               <mu-icon value="mic"></mu-icon>
             </mu-button>
-            <mu-button color="error" large @click="recorderStop" fab v-show="isRecording">
+            <mu-button
+              color="error"
+              large
+              @click="recorderStop"
+              fab
+              v-show="isRecording"
+            >
               <mu-icon value="mic_off"></mu-icon>
             </mu-button>
           </div>
@@ -47,7 +59,7 @@ export default {
       dataArrayBack: null,
       isRecording: false,
       isTimer: null,
-      time: 0
+      time: 0,
     };
   },
   created() {},
@@ -61,7 +73,7 @@ export default {
       // 录音节点
       this.recorder = this.context.createScriptProcessor(4096, 1, 1);
 
-      this.recorder.onaudioprocess = function(e) {
+      this.recorder.onaudioprocess = function (e) {
         // getChannelData返回Float32Array类型的pcm数据
         let data = e.inputBuffer.getChannelData(0);
         self.inputData.push(new Float32Array(data));
@@ -71,15 +83,15 @@ export default {
       navigator.mediaDevices
         .getUserMedia({
           audio: true,
-          video: false
+          video: false,
         })
-        .then(stream => {
+        .then((stream) => {
           this.audioInput = this.context.createMediaStreamSource(stream);
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(err);
         })
-        .then(function() {
+        .then(function () {
           self.audioInput.connect(self.recorder);
           self.recorder.connect(self.context.destination);
         });
@@ -152,8 +164,8 @@ export default {
       } else {
         return num;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

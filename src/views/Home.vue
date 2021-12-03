@@ -1,11 +1,13 @@
 <template>
   <div class="home">
-    <div class="recorder">
-      <Recorder />
-    </div>
-    <div>
-      <Recorder />
-    </div>
+    <mu-row gutter>
+      <mu-col span="12" md="6">
+        <Recorder />
+      </mu-col>
+      <mu-col span="12" md="6">
+        <Recorder />
+      </mu-col>
+    </mu-row>
   </div>
 </template>
 
@@ -15,13 +17,13 @@ import Recorder from "@/components/Recorder.vue";
 
 export default {
   components: {
-    Recorder
-  }
+    Recorder,
+  },
 };
 </script>
 
 <style lang="stylus" scoped>
-.recorder {
-  margin: 20px auto;
+.col {
+  margin-top: 20px;
 }
 </style>
